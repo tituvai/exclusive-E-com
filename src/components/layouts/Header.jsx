@@ -3,9 +3,9 @@ import Container from '../common/Container'
 import Flex from '../common/Flex'
 import Image from '../common/Image'
 import { Link } from 'react-router-dom'
-import Search from '../icon/search'
 import Shop from '../icon/Shop'
 import Heard from '../icon/Heard'
+import { IoIosSearch } from "react-icons/io";
 
 const Header = () => {
 
@@ -44,7 +44,7 @@ const Header = () => {
         <div className="flex items-center gap-x-10">
             <div className="relative bg-gray-100 pr-10">
                 <input className='font-poppin text-xs text-black placeholder:text-gray-500  p-2 outline-0' type="text" placeholder='What are you looking for?' />
-               <Link to={'/'}> <span className='absolute top-1/2 right-3 -translate-y-1/2'><Search/></span></Link>
+               <Link to={'/'}> <span className='absolute top-1/2 right-3 -translate-y-1/2'><IoIosSearch className='size-5'/></span></Link>
             </div>
             <Link to={'/'}><Shop/></Link>
             <Link to={'/'}><Heard/></Link>
