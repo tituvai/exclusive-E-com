@@ -5,6 +5,9 @@ import { Link } from 'react-router-dom'
 import Banner from '../section/Banner'
 import Categori from '../section/Categori'
 import BestSell from '../section/BestSell'
+import Offer from '../section/Offer'
+import ExploreProduct from '../section/ExploreProduct'
+import NewArrival from '../section/NewArrival'
 
 const Home = () => {
 
@@ -46,6 +49,9 @@ const Home = () => {
     </div>
     <Categori/>
     <BestSell/>
+    <Offer/>
+    <ExploreProduct/>
+    <NewArrival/>
     </>
     
   )

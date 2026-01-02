@@ -20,8 +20,12 @@ const BestSell = () => {
                     </div>
                 </Flex>
             </div>
-
+            <Flex className={'flex-wrap py-15'}>
             <Product/>
+            <Product/>
+            <Product/>
+            <Product/>
+            </Flex>
         </Container>
     </div>
     </>
