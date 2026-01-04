@@ -8,6 +8,7 @@ import BestSell from '../section/BestSell'
 import Offer from '../section/Offer'
 import ExploreProduct from '../section/ExploreProduct'
 import NewArrival from '../section/NewArrival'
+import Delivery from '../section/Delivery'
 
 const Home = () => {
 
@@ -52,6 +53,7 @@ const Home = () => {
     <Offer/>
     <ExploreProduct/>
     <NewArrival/>
+    <Delivery/>
     </>
     
   )
