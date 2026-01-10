@@ -24,7 +24,7 @@ const Home = () => {
     <>
     <div className="">
         <Container>
-            <Flex className={'border-t-1 border-borderC'}>
+            <Flex>
                 <div className="w-[25%] border-r-1 border-borderC pt-10">
                     <ul>
                         {[

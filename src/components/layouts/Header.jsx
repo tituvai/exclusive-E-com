@@ -20,6 +20,7 @@ const Header = () => {
     
   return (
     <>
+    <div className="border-b-1 border-borderC">
     <Container>
         <Flex className={'py-5 items-center'}>
         <div className="">
@@ -33,9 +34,9 @@ const Header = () => {
             <ul className='flex items-center gap-x-10'>
                { [
                     {name:"Home", path:'/'},
-                    {name:"Contact", path:'/'},
-                    {name:"About", path:'/'},
-                    {name:"Sign Up", path:'/'},
+                    {name:"Contact", path:'/contact'},
+                    {name:"About", path:'/about'},
+                    {name:"Sign Up", path:'/registration'},
                 ].map((item, index)=>(
                     <Link to={item.path} key={index} onClick={()=>heandelActive(index)}><li className={`text-base font-poppin text-black hover:border-b-2 border-black ${menuActive === index ? ' border-b-2 border-red-500' : ''}`}>{item.name}</li></Link>
                 ))}
@@ -46,11 +47,12 @@ const Header = () => {
                 <input className='font-poppin text-xs text-black placeholder:text-gray-500  p-2 outline-0' type="text" placeholder='What are you looking for?' />
                <Link to={'/'}> <span className='absolute top-1/2 right-3 -translate-y-1/2'><IoIosSearch className='size-5'/></span></Link>
             </div>
-            <Link to={'/'}><Shop/></Link>
+            <Link to={'/cart'}><Shop/></Link>
             <Link to={'/'}><Heard/></Link>
         </div>
         </Flex>
     </Container>
+    </div>
     </>
   )
 }
