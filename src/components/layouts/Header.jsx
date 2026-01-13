@@ -7,6 +7,20 @@ import Shop from '../icon/Shop'
 import Heard from '../icon/Heard'
 import { IoIosSearch } from "react-icons/io";
 
+// shadcn ui import 
+import { Button } from "@/components/ui/button"
+import {
+  Sheet,
+  SheetClose,
+  SheetContent,
+  SheetDescription,
+  SheetFooter,
+  SheetHeader,
+  SheetTitle,
+  SheetTrigger,
+} from "@/components/ui/sheet"
+// shadcn ui import 
+
 const Header = () => {
 
     // Active part Start 
@@ -48,9 +62,30 @@ const Header = () => {
                <Link to={'/'}> <span className='absolute top-1/2 right-3 -translate-y-1/2'><IoIosSearch className='size-5'/></span></Link>
             </div>
             <Link to={'/cart'}><Shop/></Link>
-            <Link to={'/'}><Heard/></Link>
+            {/* Wish part start  */}
+
+                <div className="">
+                <Sheet>
+                <SheetTrigger asChild className='bg-white'>
+                <Button variant={'secondary'} ><Heard className={'cursor-pointer'}/></Button>
+                </SheetTrigger>
+                <SheetContent className={'bg-white shadow'}>
+                    <SheetHeader>
+                    <SheetTitle className={'pt-10'}>Wish List</SheetTitle>
+                    <SheetDescription>
+                        Make changes to your profile here. Click save when you&apos;re done.
+                    </SheetDescription>
+                    </SheetHeader>
+                </SheetContent>
+                </Sheet>
+                </div>
+            {/* Wish part End */}
         </div>
         </Flex>
+
+        
+
+
     </Container>
     </div>
     </>
