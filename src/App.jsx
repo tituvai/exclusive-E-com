@@ -10,6 +10,7 @@ import Registration from './components/pages/Registration'
 import Login from './components/pages/Login'
 import Cart from './components/pages/Cart'
 import Chackout from './components/pages/Chackout'
+// import QuckView from './components/section/QuckView'
 
 function App() {
   
@@ -26,6 +27,7 @@ function App() {
           <Route path='/login' element={<Login/>}/>
           <Route path='/cart' element={<Cart/>}/>
           <Route path='/chackout' element={<Chackout/>}/>
+          {/* <Route path='/quick' element={<QuckView/>}/> */}
 
         </Route>
       </Routes>

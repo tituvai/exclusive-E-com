@@ -59,13 +59,11 @@ const ExploreProduct = () => {
       <SwiperSlide>
         <Product/>
       </SwiperSlide>
-    
-    
     </Swiper>
      </div>
-            <div className="flex justify-center pt-25">
-                <Button  btnText={'View All Products'}/>
-            </div>
+      <div className="flex justify-center pt-25">
+          <Button  btnText={'View All Products'}/>
+      </div>
         </div>
     </Container>
    </div>

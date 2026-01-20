@@ -1,4 +1,4 @@
-import React from 'react'
+
 import Container from '../common/Container'
 import { Link } from 'react-router-dom'
 import Flex from '../common/Flex'
@@ -17,8 +17,30 @@ import car from '/src/assets/cor.png'
 import retur from '/src/assets/return.png'
 import BgrTitle from '../common/BgrTitle'
 import Product from '../section/Product'
+import { FaLongArrowAltLeft, FaLongArrowAltRight } from "react-icons/fa";
+import { FaArrowLeftLong, FaArrowRightLong} from "react-icons/fa6";
+
+// swiper Slider Paer Start 
+
+import React, { useRef, useState } from 'react';
+// Import Swiper React components
+import { Swiper, SwiperSlide } from 'swiper/react';
+
+// Import Swiper styles
+import 'swiper/css';
+import 'swiper/css/free-mode';
+import 'swiper/css/navigation';
+import 'swiper/css/thumbs';
+
+
+
+// import required modules
+import { FreeMode, Navigation, Thumbs } from 'swiper/modules';
+
+// swiper Slider Paer End
 
 const Product_Details = () => {
+    const [thumbsSwiper, setThumbsSwiper] = useState(null);
   return (
     <div className="py-15">
         <Container>
@@ -36,26 +58,57 @@ const Product_Details = () => {
                 </ul>
             </div>
             <Flex className={'pt-10'}>
-                <div className="w-[60%] flex justify-between">
-                    <div className="w-[25%] flex flex-col gap-y-2">
-                        <picture>
-                            <Image className={'w-full'} imgSrc={game_1} imgAlt={"gameing.png"}/>
-                        </picture>
-                        <picture>
-                            <Image className={'w-full'} imgSrc={game_2} imgAlt={"gameing.png"}/>
-                        </picture>
-                        <picture>
-                            <Image className={'w-full'} imgSrc={game_3} imgAlt={"gameing.png"}/>
-                        </picture>
-                        <picture>
-                            <Image className={'w-full'} imgSrc={game_4} imgAlt={"gameing.png"}/>
-                        </picture>
+                <div className="w-[60%]">
+                 {/* swiper Slider Part Start  */}
+                <Flex>
+                <div className="w-[18%]">
+                <Swiper
+                    onSwiper={setThumbsSwiper}
+                    direction="vertical"
+                    slidesPerView="auto"
+                    spaceBetween={10}
+                    freeMode={true}
+                    watchSlidesProgress={true}
+                    modules={[FreeMode, Thumbs]}
+                    className="thumbSwiper h-full"
+                >
+                    {[game_1, game_2, game_3, game_4].map((item, index) => (
+                    <SwiperSlide key={index} className="!h-auto">
+                        <div className="thumb-item">
+                        <Image className={'w-full'} imgSrc={item} />
+                        </div>
+                    </SwiperSlide>
+                    ))}
+                </Swiper>
+                </div>
+
+                <div className="w-[78%]">
+                <Swiper
+                    loop={true}
+                    spaceBetween={10}
+                    thumbs={{ swiper: thumbsSwiper }}
+                    modules={[Navigation, Thumbs]}
+                    navigation={{
+                    nextEl: ".next_arrews",
+                    prevEl: ".prive_arrews"
+                     }}
+                    className="mainSwiper relative group"
+                >
+                    {[game_1, game_2, game_3, game_4].map((item, index) => (
+                    <SwiperSlide key={index}>
+                        <Image className={'w-full'} imgSrc={item} />
+                    </SwiperSlide>
+                    ))}
+                    <div className="next_arrews absolute top-1/2 left-1 -translate-y-1/2 transition-all  w-[30px] h-[30px] bg-white z-40 flex justify-center items-center rounded cursor-pointer opacity-0 group-hover:opacity-100 duration-[1s] -translate-x-4 group-hover:translate-x-0">
+                        <FaLongArrowAltLeft/>
                     </div>
-                    <div className="w-[70%]">
-                        <picture>
-                            <Image className={'w-full'} imgSrc={game} imgAlt={"gameing.png"}/>
-                        </picture>
+                    <div className="prive_arrews absolute top-1/2 right-1 -translate-y-1/2 transition-all  w-[30px] h-[30px] bg-white z-40 flex justify-center items-center rounded cursor-pointer opacity-0 group-hover:opacity-100 duration-[1s] translate-x-4 group-hover:-translate-x-0">
+                        <FaLongArrowAltRight/>
                     </div>
+                </Swiper>
+                </div>
+                </Flex>
+                {/* swiper Slider Part End */}
                 </div>
                 <div className="w-[38%]">
                     <Title className={'text-2xl text-black font-inter font-semibold leading-6'} text={'Havic HV G-92 Gamepad'} as={'h4'}/>
@@ -125,18 +178,48 @@ const Product_Details = () => {
                 </div>
             </Flex>
 
+        
             <div className="py-20">
                 <div className="pb-10">
                     <BgrTitle bgrText={'Related Item'}/>
                 </div>
 
-                <Flex>
-                    <Product/>
-                    <Product/>
-                    <Product/>
-                    <Product/>
-                </Flex>
+                <div className="relative">
+                <div className="absolute -top-30 right-13 z-40">
+                <div className="explore-next bg-productC w-[30px] h-[30px] rounded-full flex justify-center items-center absolute top-10 right-13 z-40 cursor-pointer"><FaArrowLeftLong/></div>
+                <div  className=" explore-prev bg-productC w-[30px] h-[30px] rounded-full flex justify-center items-center absolute top-10 right-1 z-40 cursor-pointer"><FaArrowRightLong/></div>
             </div>
+            <Swiper
+              modules={[Navigation]}
+              spaceBetween={50}
+              slidesPerView={4}
+              navigation={{
+              prevEl: '.explore-prev',
+              nextEl: '.explore-next',
+            }}     
+              pagination={{ clickable: true }} 
+              className="overflow-hidden"
+            >
+              <SwiperSlide>
+                <Product/>
+              </SwiperSlide>
+              <SwiperSlide>
+                <Product/>
+              </SwiperSlide>
+              <SwiperSlide>
+                <Product/>
+              </SwiperSlide>
+              <SwiperSlide>
+                <Product/>
+              </SwiperSlide>
+              <SwiperSlide>
+                <Product/>
+              </SwiperSlide>
+            </Swiper>
+             </div>
+            </div>
+
+
         </Container>
     </div>
   )

@@ -142,3 +142,34 @@
     @apply bg-background text-foreground;
   }
 }
+
+
+
+
+.thumbSwiper .swiper-wrapper {
+  flex-direction: column;
+}
+
+.thumbSwiper .swiper-slide {
+  width: 100%;
+}
+
+.thumb-item {
+  border: 2px solid transparent;
+  border-radius: 8px;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.thumbSwiper .swiper-slide-thumb-active .thumb-item {
+
+  border-color: black;
+
+}
+
+
+
+
+
+
+
